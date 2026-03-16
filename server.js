@@ -9,6 +9,21 @@ const User = require('./models/User');
 
 dotenv.config();
 const app = express();
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Node ESM ke liye __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve frontend dist folder
+app.use(express.static(path.join(__dirname, "dist")));
+
+// SPA routing - React ke liye
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
 
 // Middleware
 app.use(express.json());
