@@ -8,7 +8,6 @@ const Order = require('./models/Order');
 const User = require('./models/User');
 
 dotenv.config();
-const app = express();
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
