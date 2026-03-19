@@ -9,6 +9,7 @@ const Order = require('./models/Order');
 const User = require('./models/User');
 
 dotenv.config();
+
 const app = express();
 // Middleware
 app.use(express.json());
