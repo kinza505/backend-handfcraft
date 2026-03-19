@@ -1,8 +1,8 @@
-import express from "express";
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const bcrypt = require('bcryptjs');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const bcrypt = require("bcryptjs");
 const path = require("path");
 
 const Order = require('./models/Order');
