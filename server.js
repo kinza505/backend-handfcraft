@@ -16,10 +16,16 @@ app.use(express.json());
 app.use(cors());
 
 // Serve frontend (dist folder)
-app.use(express.static(path.join(__dirname, "dist")));
+// Serve static files
+app.use(express.static(path.join(process.cwd(), "dist")));
 
-app.get(".*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+// Catch-all route for SPA
+app.use((req, res, next) => {
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(process.cwd(), "dist", "index.html"));
+  } else {
+    next();
+  }
 });
 
 // MongoDB Connection
